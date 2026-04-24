@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-dark text-gray-200 font-sans antialiased selection:bg-accent-blue selection:text-white min-h-screen;
+  }
+}
+
+@layer utilities {
+  .glow-border {
+    @apply border border-accent-glow shadow-[0_0_15px_rgba(0,209,255,0.2)];
+  }
+  
+  .text-glow {
+    text-shadow: 0 0 10px rgba(0,209,255,0.4);
+  }
+}
+
+/* Print Styles */
+@media print {
+  @page {
+    size: A4;
+    margin: 15mm;
+  }
+  
+  body {
+    background-color: white !important;
+    color: black !important;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+    min-height: auto;
+  }
+  
+  * {
+    backdrop-filter: none !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+    border-color: #e5e7eb !important; /* light gray for print */
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+
+  .print-hidden {
+    display: none !important;
+  }
+
+  /* Force colors in print */
+  .print-text-black {
+    color: black !important;
+  }
+  .print-text-gray {
+    color: #4b5563 !important;
+  }
+  .print-border {
+    border: 1px solid #e5e7eb !important;
+  }
+  
+  /* Link un-coloring, optionally you might want links to be black too */
+  a {
+    color: black !important;
+    text-decoration: none !important;
+  }
+}
